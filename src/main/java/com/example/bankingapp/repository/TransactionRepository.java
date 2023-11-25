@@ -4,10 +4,11 @@ import com.example.bankingapp.dto.transaction.TransactionDto;
 import com.example.bankingapp.entity.Transaction;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.awt.print.Pageable;
 import java.util.List;
-
+@Repository
 public interface TransactionRepository extends CrudRepository<Transaction, Long> {
     Long countAllByAccountId(long accountId);
 
