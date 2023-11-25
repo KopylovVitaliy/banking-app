@@ -21,4 +21,11 @@ public class Account {
 
     private int balance;
 
+    public void deposit(double currencyValue) {
+        balance += currencyValue;
+    }
+
+    public void withdraw(double currencyValue) {
+        balance -= currencyValue;
+    }
 }

@@ -9,6 +9,9 @@ import org.hibernate.annotations.SourceType;
 
 import java.time.LocalDateTime;
 
+import static com.example.bankingapp.entity.Operation.DEPOSIT;
+import static com.example.bankingapp.entity.Operation.WITHDRAW;
+
 @Entity
 @Getter
 @Setter
@@ -30,7 +33,6 @@ public class Transaction {
     @Column(name = "account_id", nullable = false)
     private long accountId;
 
-    @Column(name = "timestamp")
     @CreationTimestamp(source = SourceType.DB)
     private LocalDateTime dateTimeOperation;
 
@@ -38,5 +40,12 @@ public class Transaction {
         this.operation = operation;
         this.amount = amount;
         this.accountId = accountId;
+    }
+    public static Transaction newBalanceWithdrawLog(long accountId, long amount) {
+        return new Transaction( WITHDRAW, amount, accountId);
+    }
+
+    public static Transaction newBalanceDepositLog(long accountId, long amount) {
+        return new Transaction( DEPOSIT, amount, accountId);
     }
 }

@@ -1,7 +1,5 @@
 package com.example.bankingapp.dto.account;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,10 +9,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class AccountNewDto {
-    @NotBlank
-    @Size(min = 4, max = 25)
+public class AccountInfoDto {
+    private long id;
     private String name;
-
-    private String pin;
+    private long balance;
 }
